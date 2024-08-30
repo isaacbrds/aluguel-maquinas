@@ -1,0 +1,14 @@
+<%= simple_form_for @customer do |form| %>
+    <div class="row">
+        <div class="col-12 col-md-8">
+            <%= form.input :name %>
+        </div>
+        <div class="col-12 col-md-4">
+            <%= form.input :dob, html5: true %>
+        </div>
+    </div>
+    <%= form.input :mobile_phone %>
+    <%= form.input :email %>
+
+    <%= form.submit %>
+<% end %>
