@@ -10,14 +10,17 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
-  <body class="sb-nav-fixed">
-    <%= render "shared/navbar"%>
-    <div id="layoutSidenav">
-      <%= render "shared/sidebar"%>
-      <div id="layoutSidenav_content">
-        <%= yield %>
+  <body class="bg-secondary">
+    <div id="layoutAuthentication">
+      <div id="layoutAuthentication_content">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-5">
+              <%= yield %>
+            </div>
+        </div>
       </div>
     </div>
-    <%= render 'shared/footer' %>
+  <%= render 'shared/footer' %>
   </body>
 </html>

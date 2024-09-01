@@ -1,14 +1,25 @@
-<%= simple_form_for @customer do |form| %>
-    <div class="row">
-        <div class="col-12 col-md-8">
-            <%= form.input :name %>
-        </div>
-        <div class="col-12 col-md-4">
-            <%= form.input :dob, html5: true %>
-        </div>
-    </div>
-    <%= form.input :mobile_phone %>
-    <%= form.input :email %>
+<div class="container">
+  <div class="row mt-4">
+      <div class="card">
+          <div class="card-body">
+              <%= simple_form_for @customer do |form| %>
+                  <div class="row">
+                      <div class="col-12 col-md-8">
+                          <%= form.input :name %>
+                      </div>
+                      <div class="col-12 col-md-4">
+                          <%= form.input :dob, html5: true %>
+                      </div>
+                  </div>
+                  <%= form.input :mobile_phone %>
+                  <%= form.input :email %>
+          </div>
+          <div class="card-footer d-flex justify-content-around">
+              <%= link_to 'voltar', customers_path, class: 'btn btn-secondary' %>
+              <%= form.submit 'Enviar', class: 'btn btn-success' %>
+              <% end %>
+          </div>
+      </div>
+  </div>
 
-    <%= form.submit %>
-<% end %>
+</div>

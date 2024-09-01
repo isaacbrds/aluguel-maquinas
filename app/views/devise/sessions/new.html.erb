@@ -1,0 +1,27 @@
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="card shadow-lg border-0 rounded-lg mt-5">
+    <div class="card-header">
+      <h3 class="text-center font-weight-light my-4">Login</h3>
+    </div>
+  <div class="card-body">
+    <div class="form-inputs mt-2" >
+      <%= f.input :email,
+                  required: false,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" } %>
+      <%= f.input :password,
+                  required: false,
+                  input_html: { autocomplete: "current-password" } %>
+    </div>
+
+    <div class="d-grid">
+      <%= f.button :submit, "Login", class: 'btn btn-success mt-3 mb-3' %>
+    </div>
+  </div>
+<% end %>
+  <div class="card-footer">
+    <div class="d-flex justify-content-around">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>
