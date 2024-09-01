@@ -3,6 +3,8 @@
         <%= customer.name %>
     </div>
     <div class="card-footer">
-        <%= link_to 'Editar', edit_customer_path(customer) %>
+        <% if policy(Customer).update? %>
+            <%= link_to 'Editar', edit_customer_path(customer) %>
+        <% end %>
     </div>
 </div>

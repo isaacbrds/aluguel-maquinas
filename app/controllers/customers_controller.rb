@@ -3,24 +3,32 @@ class CustomersController < ApplicationController
   before_action :load_customer, only: [:show, :edit, :update, :destroy] 
   def index
     @customers = Customer.order(:name)
+    authorize @customers
   end
 
-  def show;end
+  def show
+    authorize @customer
+  end
 
   def new
     @customer = Customer.new
+    authorize @customer
   end
 
   def create
     @customer = Customer.new customer_params
+    authorize @customer
     if @customer.save
       redirect_to customers_path, notice: 'Cliente cadastrado com sucesso!'
     else
       render :new, status: :unprocessable_entity
     end
   end
-  def edit;end
+  def edit
+    authorize @customer
+  end
   def update
+    authorize @customer
     if @customer.update customer_params
       redirect_to customers_path, notice: 'Cliente atualizado com sucesso!'
     else
@@ -28,6 +36,7 @@ class CustomersController < ApplicationController
     end
   end
   def destroy
+    authorize @customer
     @customer.destroy
     redirect_to customers_path
   end

@@ -1,0 +1,10 @@
+<div class="card">
+    <div class="card-body">
+        <%= equipament.name %>
+    </div>
+    <div class="card-footer">
+        <% if policy(Equipament).create? %>
+            <%= link_to 'Editar', edit_equipament_path(equipament) %>
+        <% end %>
+    </div>
+</div>

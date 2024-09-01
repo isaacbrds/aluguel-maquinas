@@ -2,17 +2,17 @@
   <div class="row mt-4">
     <div class="d-flex">
       <div class="flex-grow-1">
-        <h3>Lista de Clientes</h3>
+        <h3>Lista de Equipamentos</h3>
       </div>
 
       <div class="list-actions">
-        <% if policy(Customer).create? %>
-          <%= link_to 'Novo', new_customer_path, class: "btn btn-primary" %>
+        <% if policy(Equipament).create? %>
+          <%= link_to 'Novo', new_equipament_path, class: "btn btn-primary" %>
         <% end %>
       </div>
 
     </div>
 
-    <%= render @customers %>
+    <%= render @equipaments %>
   </div>
 </div>
