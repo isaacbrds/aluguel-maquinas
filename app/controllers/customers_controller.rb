@@ -1,9 +1,14 @@
 class CustomersController < ApplicationController
   before_action :authenticate_user!
-  before_action :load_customer, only: [:show, :edit, :update, :destroy] 
+  before_action :load_customer, only: [:show, :edit, :update, :destroy]
   def index
     @customers = Customer.order(:name)
     authorize @customers
+  end
+
+  def search
+    @q = Customer.ransack(params[:q])
+    @customers = @q.result(distinct: true)
   end
 
   def show

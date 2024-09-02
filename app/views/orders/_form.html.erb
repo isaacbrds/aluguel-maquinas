@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row mt-4">
+      <div class="card">
+        <div class="card-header">
+            <h3 class="text-center font-weight-light my-4">Pedido</h3>
+        </div>
+          <div class="card-body">
+              <%= simple_form_for @order do |form| %>
+                  <div class="row">
+                      <div class="col-12 col-md-8">
+                          <%= form.association :customer %>
+                      </div>
+                  </div>
+          </div>
+          <div class="card-footer d-flex justify-content-around">
+              <%= link_to 'voltar', orders_path, class: 'btn btn-secondary' %>
+              <%= form.submit 'Enviar', class: 'btn btn-success' %>
+              <% end %>
+          </div>
+      </div>
+  </div>
+
+</div>

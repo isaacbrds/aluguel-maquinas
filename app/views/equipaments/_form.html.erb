@@ -7,6 +7,7 @@
           <div class="card-body">
               <%= simple_form_for @equipament do |form| %>
                   <div class="row">
+                      <%= form.error_notification %>
                       <div class="col-12 col-md-8">
                           <%= form.input :name %>
                       </div>

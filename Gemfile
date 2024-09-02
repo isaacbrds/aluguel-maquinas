@@ -69,3 +69,5 @@ gem "simple_form", "~> 5.3"
 gem "devise", "~> 4.9"
 
 gem "pundit", "~> 2.4"
+
+gem "ransack", "~> 4.2"
