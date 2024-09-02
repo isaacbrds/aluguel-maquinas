@@ -17,4 +17,8 @@ class Equipament < ApplicationRecord
           ).where( schedules: { status: ['peding', 'in_progress'] })
     )
   end
+
+  def self.ransackable_attributes(auth_object=nil)
+    ["name", "serial_number"]
+  end
 end

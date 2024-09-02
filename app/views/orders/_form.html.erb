@@ -6,11 +6,38 @@
         </div>
           <div class="card-body">
               <%= simple_form_for @order do |form| %>
-                  <div class="row">
-                      <div class="col-12 col-md-8">
-                          <%= form.association :customer %>
-                      </div>
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <%= form.input :customer_id, required: true do %>
+                        <div data-controller="autocomplete" data-autocomplete-url-value="<%= search_customers_path %>" role="combobox">
+                          <input type="text" class="form-control" data-autocomplete-target="input"/>
+                          <%= form.input_field :customer_id, as: :hidden, data: { 'autocomplete-target': 'hidden' } %>
+                          <ul class="list-group" data-autocomplete-target="results"></ul>
+                        </div>
+                          <%= form.full_error :customer %> 
+                        <% end %>
                   </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <%= form.input :period_start, html5: true %>
+                </div>
+                <div class="col-12 col-md-6">
+                  <%= form.input :period_end, html5: true  %>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12 col-md-8">
+                    <%= form.input :equipament_id, required: true do %>
+                    <div data-controller="autocomplete" data-autocomplete-url-value="<%= search_equipaments_path %>" role="combobox">
+                      <input type="text" class="form-control" data-autocomplete-target="input"/>
+                      <%= form.input_field :equipament_id, as: :hidden, data: { 'autocomplete-target': 'hidden' } %>
+                      <ul class="list-group" data-autocomplete-target="results"></ul>
+                    </div>
+                      <%= form.full_error :equipament %> 
+                    <% end %>
+              </div>
           </div>
           <div class="card-footer d-flex justify-content-around">
               <%= link_to 'voltar', orders_path, class: 'btn btn-secondary' %>

@@ -7,8 +7,10 @@ class CustomersController < ApplicationController
   end
 
   def search
-    @q = Customer.ransack(params[:q])
+    @q = Customer.ransack(name_matches: params[:q])
     @customers = @q.result(distinct: true)
+
+    render layout: false
   end
 
   def show

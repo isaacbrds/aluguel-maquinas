@@ -5,7 +5,11 @@ Rails.application.routes.draw do
       get :search
     end
   end
-  resources :equipaments
+  resources :equipaments do
+    collection do
+      get :search
+    end
+  end
   resources :orders
   root "customers#index"
 end

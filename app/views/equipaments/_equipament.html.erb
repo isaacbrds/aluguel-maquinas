@@ -1,10 +1,13 @@
 <div class="card">
     <div class="card-body">
-        <%= equipament.name %>
+        <div class="card-body d-flex justify-content-between">
+            <span> <%= equipament.name %> </span>
+            <span><%= equipament.serial_number %></span>
+        </div>
     </div>
     <div class="card-footer">
-        <% if policy(Equipament).create? %>
-            <%= link_to 'Editar', edit_equipament_path(equipament) %>
+        <% if policy(Equipament).update? %>
+            <%= link_to 'Editar', edit_equipament_path(equipament), class: 'btn btn-danger' %>
         <% end %>
     </div>
 </div>

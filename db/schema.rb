@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_02_141741) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_02_231022) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -89,7 +89,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_02_141741) do
     t.date "period_end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "order_id"
     t.index ["equipament_id"], name: "index_schedules_on_equipament_id"
+    t.index ["order_id"], name: "index_schedules_on_order_id"
     t.index ["status"], name: "index_schedules_on_status"
   end
 
@@ -112,4 +114,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_02_141741) do
   add_foreign_key "orders", "customers"
   add_foreign_key "orders", "equipaments"
   add_foreign_key "schedules", "equipaments"
+  add_foreign_key "schedules", "orders"
 end

@@ -1,0 +1,5 @@
+<% @equipaments.each do |equipament| %>
+<li class="list-group-item" role="option" data-autocomplete-value="<%= equipament.id %>">
+    <%= equipament.name %> -- Serial: <%= equipament.serial_number %>
+</li>
+<% end %>

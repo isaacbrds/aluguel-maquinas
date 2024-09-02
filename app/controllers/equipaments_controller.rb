@@ -12,6 +12,13 @@ class EquipamentsController < ApplicationController
     authorize @equipament
   end
 
+  def search
+    @q = Equipament.ransack(name_matches: params[:q])
+    @equipaments = @q.result(distinct: true)
+
+    render layout: false
+  end
+
   def create
     @equipament = Equipament.new equipament_params
     authorize @equipament

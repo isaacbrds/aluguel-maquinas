@@ -1,0 +1,12 @@
+<div class="card">
+    <div class="card-body">
+        <div class="card-body d-flex justify-content-between">
+            <span> <%= order.name %> </span>
+        </div>
+    </div>
+    <div class="card-footer">
+        <% if policy(Order).update? %>
+            <%= link_to 'Editar', edit_order_path(order), class: 'btn btn-danger' %>
+        <% end %>
+    </div>
+</div>
