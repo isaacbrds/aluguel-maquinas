@@ -13,8 +13,16 @@ class EquipamentsController < ApplicationController
   end
 
   def search
-    @q = Equipament.ransack(name_matches: params[:q])
-    @equipaments = @q.result(distinct: true)
+    period_start = params[:period_start]&.presence
+    period_end = params[:period_end]&.presence
+
+    if period_start
+      @equipaments = Equipament
+              .availables(period_start, period_end)
+              .where("lower(name) ILIKE ?", "%#{params[:q]}%")
+    else
+      @equipaments = Equipament.none
+    end
 
     render layout: false
   end

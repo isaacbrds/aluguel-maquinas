@@ -7,7 +7,7 @@
           <div class="card-body">
               <%= simple_form_for @equipament do |form| %>
                   <div class="row">
-                      <%= form.error_notification %>
+                      <%= form.full_error :equipament %>
                       <div class="col-12 col-md-8">
                           <%= form.input :name %>
                       </div>
@@ -20,7 +20,7 @@
           </div>
           <div class="card-footer d-flex justify-content-around">
               <%= link_to 'voltar', equipaments_path, class: 'btn btn-secondary' %>
-              <%= form.submit 'Enviar', class: 'btn btn-success' %>
+              <%= form.button :button, class: 'btn btn-success' %>
               <% end %>
           </div>
       </div>

@@ -4,7 +4,8 @@
 
 import { application } from "./application"
 import { Autocomplete } from "stimulus-autocomplete"
+import OrderEquipamentController from "./order_equipament_controller"
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+
 application.register("autocomplete", Autocomplete)
+application.register("order-equipament", OrderEquipamentController)

@@ -14,7 +14,7 @@ class Equipament < ApplicationRecord
             "(schedules.period_start, schedules.period_end) OVERLAPS (?,?)",
             period_start,
             period_end
-          ).where( schedules: { status: ['peding', 'in_progress'] })
+          ).where( schedules: { status: ['pending', 'in_progress'] })
     )
   end
 
