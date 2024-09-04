@@ -4,7 +4,9 @@ class Order < ApplicationRecord
 
   has_one :schedule
 
+  
   after_create :generate_schedule
+  validates :period_start , presence: true
 
   private
 
